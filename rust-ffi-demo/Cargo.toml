@@ -10,5 +10,11 @@ build = "build.rs"
 libc = "0.2.0"
 
 
+[lib]
+# The available options are bin, lib, rlib, dylib, cdylib, staticlib, and proc-macro. 
+# You can read more about the different crate types in the Rust Reference Manual.
+crate-type = ["cdylib"]
+
+
 [build-dependencies]
 cc = "1.4.2" # c compiler 调用c编译器，将c代码编译为静态库
