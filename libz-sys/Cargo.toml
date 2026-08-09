@@ -1,0 +1,11 @@
+# Cargo.toml
+
+[package]
+name = "libz-sys"
+version = "0.1.0"
+edition = "2024"
+# 我们在 package 表中包含了 links 键。这会告诉 Cargo 我们正在链接到 libz 库
+links = "z"
+
+[build-dependencies]
+pkg-config = "0.3.16"

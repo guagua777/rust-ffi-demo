@@ -1,0 +1,12 @@
+# Cargo.toml
+
+[package]
+name = "z_user"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+libz-sys = "1.0.25"
+
+[build-dependencies]
+cc = "1.0.46"

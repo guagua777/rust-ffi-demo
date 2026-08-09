@@ -1,0 +1,12 @@
+[package]
+name = "zlib_ffi_demo"
+version = "0.1.0"
+edition = "2021"
+# 原生库标记，库名为 z（对应 libz.a / libz.so）
+links = "z"
+
+[build-dependencies]
+# cc 开启 parallel‑jobserver 多线程编译
+cc = { version = "1.4.2", features = ["parallel"] }
+# 类型安全 Cargo build 输出接口
+build-rs = "0.3.5"
