@@ -1,3 +1,29 @@
+struct RustObject {
+    a: i32,
+    // Other members...
+}
+
+unsafe extern "C" fn callback(target: *mut RustObject, a: i32) {
+    println!("I'm called from C with value {0}", a);
+    unsafe {
+        // Update the value in RustObject with the value received from the callback:
+        (*target).a = a;
+    }
+}
+
+#[link(name = "extlib")]
+unsafe extern "C" {
+   fn register_callback(target: *mut RustObject,
+                        cb: unsafe extern "C" fn(*mut RustObject, i32)) -> i32;
+   fn trigger_callback();
+}
+
 fn main() {
-    println!("Hello, world!");
+    // Create the object that will be referenced in the callback:
+    let mut rust_object = Box::new(RustObject { a: 5 });
+
+    unsafe {
+        register_callback(&mut *rust_object, callback);
+        trigger_callback();
+    }
 }
