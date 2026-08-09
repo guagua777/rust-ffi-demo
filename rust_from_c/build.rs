@@ -6,6 +6,10 @@ fn main1() {
         .compile("extlib");
 }
 
+
+// 自定义构建
+// 自定义build
+// 常用于生成代码、编译c依赖、设置环境变量等
 use std::process::Command;
 use std::env;
 
