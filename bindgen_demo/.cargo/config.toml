@@ -1,0 +1,7 @@
+# .cargo/config.toml
+[build]
+target = "riscv32i-unknown-none-elf
+
+[env]
+SYSROOT = "/home/lxx/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
+BINDGEN_EXTRA_CLANG_ARGS = "-DPLATFORM_ARM=1"
